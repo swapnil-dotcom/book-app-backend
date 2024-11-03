@@ -15,6 +15,13 @@ app.use((req, res, next) => {
     next();
   }
 });
+app.use((req, res, next) => {
+  if (req.url === '/favicon.png') {
+    res.status(204).end(); // Respond with "No Content" and end the request
+  } else {
+    next();
+  }
+});
 app.use(express.json());
 app.use(cors({
     origin: ['http://localhost:5173', 'https://book-app-frontend-kohl.vercel.app'],
