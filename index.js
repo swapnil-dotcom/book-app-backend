@@ -14,7 +14,7 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://vercel.live"], // Allow scripts from vercel.live
+        scriptSrc: ["'self'", "https://book-app-backend-fqq4drf8u-swapnil-bankars-projects-798cdc0b.vercel.app/"], // Allow scripts from vercel.live
       },
     },
   })
