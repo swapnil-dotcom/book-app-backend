@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const helmet = require('helmet');
 
 const mongoose = require('mongoose');
 
@@ -9,17 +8,6 @@ const port = process.env.PORT || 5000;
 require('dotenv').config();
 
 // middleware
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://book-app-backend-fqq4drf8u-swapnil-bankars-projects-798cdc0b.vercel.app/"], // Allow scripts from vercel.live
-      },
-    },
-  })
-);
-
 app.use(express.json());
 app.use(cors({
     origin: ['http://localhost:5173', 'https://book-app-frontend-kohl.vercel.app'],
