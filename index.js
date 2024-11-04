@@ -9,6 +9,13 @@ const port = process.env.PORT || 5000;
 require('dotenv').config();
 
 // middleware
+app.use((req, res, next) => {
+  if (req.url === '/favicon.ico' || req.url === '/favicon.png') {
+    res.status(204).end(); // Respond with "No Content" for favicon requests
+  } else {
+    next(); // Proceed with other routes
+  }
+});
 app.use(express.json());
 app.use(cors({
     origin: ['http://localhost:5173', 'https://book-app-frontend-kohl.vercel.app'],
