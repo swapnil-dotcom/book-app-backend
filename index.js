@@ -16,8 +16,9 @@ app.use((req, res, next) => {
 });
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173', 'https://book-app-frontend-kohl.vercel.app'],
-    credentials: true,
+  origin: ['http://localhost:5173', 'https://book-app-frontend-kohl.vercel.app'], // Your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific HTTP methods
+  credentials: true // If you need to send cookies or authentication headers
 }));
 
 // Route Imports
