@@ -9,19 +9,6 @@ const port = process.env.PORT || 5000;
 require('dotenv').config();
 
 // middleware
-const helmet = require('helmet');
-
-app.use(
-  helmet({
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://vercel.live"],
-        // Add other directives as needed, like 'styleSrc', 'imgSrc', etc.
-      },
-    },
-  })
-);
 app.use((req, res, next) => {
   if (req.url === '/favicon.ico') {
     res.status(204).end(); // Respond with "No Content" and end the request
@@ -55,7 +42,7 @@ app.use('/api/admin', adminRoutes);
 
 async function main() {
     await mongoose.connect(process.env.DB_URL);
-    app.use('/', (req, res) => {
+    app.get('/', (req, res) => {
         res.send('Book Store Server is running!');
     })
 }
