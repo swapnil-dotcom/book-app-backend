@@ -21,10 +21,6 @@ app.use(cors({
   credentials: true // If you need to send cookies or authentication headers
 }));
 
-fetch('https://book-app-backend-sigma.vercel.app/api/books/', {
-  mode: 'no-cors'
-});
-
 // Route Imports
 const bookRoutes = require('./src/books/book.route');
 const orderRoutes = require('./src/orders/order.route');
