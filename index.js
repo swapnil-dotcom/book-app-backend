@@ -4,6 +4,7 @@ const cors = require('cors');
 
 const mongoose = require('mongoose');
 
+const hostname = "https://book-app-backend-weld.vercel.app";
 const port = process.env.PORT || 5000;
 require('dotenv').config();
 
@@ -48,6 +49,6 @@ async function main() {
 
 main().then(() => console.log('Mongodb connect successfully!')).catch(err => console.log(err));
 
-app.listen(port, () => {
+app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`);
 })
